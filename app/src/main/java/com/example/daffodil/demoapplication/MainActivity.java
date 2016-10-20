@@ -1,5 +1,7 @@
 package com.example.daffodil.demoapplication;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
@@ -126,7 +130,27 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
+            Toast.makeText(this,"clicked",Toast.LENGTH_LONG).show();
+
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            FragmentA fragmentA= new FragmentA();
+            fragmentTransaction.replace(R.id.container,fragmentA);
+            fragmentTransaction.commit();
+
         } else if (id == R.id.nav_slideshow) {
+
+
+            Toast.makeText(this,"slide Show clicked",Toast.LENGTH_LONG).show();
+
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            FragmentB fragmentB= new FragmentB();
+            fragmentTransaction.replace(R.id.container,fragmentB);
+            fragmentTransaction.commit();
+
 
         } else if (id == R.id.nav_manage) {
 
